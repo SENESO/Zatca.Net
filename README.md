@@ -4,6 +4,7 @@
 [![.NET](https://img.shields.io/badge/.NET-netstandard2.0%20%7C%20net8.0-512BD4)](https://dotnet.microsoft.com/)
 [![CI](https://img.shields.io/github/actions/workflow/status/SENESO/Zatca.Net/ci.yml?branch=main)](https://github.com/SENESO/Zatca.Net/actions)
 [![GitHub stars](https://img.shields.io/github/stars/SENESO/Zatca.Net)](https://github.com/SENESO/Zatca.Net/stargazers)
+[![NuGet](https://img.shields.io/nuget/v/Zatca.Net)](https://www.nuget.org/packages/Zatca.Net)
 
 # Zatca.Net
 
