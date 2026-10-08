@@ -28,6 +28,13 @@ namespace Zatca.Crypto
             return ComputeHash(Encoding.UTF8.GetBytes(utf8Text));
         }
 
+        /// <summary>SHA-256 digest of a UTF-8 string as lowercase hex (64 chars).</summary>
+        public static string ComputeHashHex(string utf8Text)
+        {
+            if (utf8Text == null) throw new ArgumentNullException(nameof(utf8Text));
+            return ComputeHashHex(Encoding.UTF8.GetBytes(utf8Text));
+        }
+
         /// <summary>SHA-256 digest as lowercase hex (64 chars). This is the format
         /// ZATCA expects for the <c>invoiceHash</c> API field and the PIH chain.</summary>
         public static string ComputeHashHex(byte[] data)
