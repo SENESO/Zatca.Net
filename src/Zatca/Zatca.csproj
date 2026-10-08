@@ -6,13 +6,14 @@
     <Authors>Eslam Ashraf;Github Contributors</Authors>
     <PackageTags>zatca;fatoora;einvoicing;saudi-arabia;ksa;sdk;dotnet</PackageTags>
     <TargetFrameworks>netstandard2.0;net8.0</TargetFrameworks>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <PackageId>Zatca.Net</PackageId>
     <RootNamespace>Zatca</RootNamespace>
     <LangVersion>latest</LangVersion>
     <Nullable>disable</Nullable>
       <RepositoryUrl>https://github.com/SENESO/Zatca.Net</RepositoryUrl>
-      <PackageIcon>icon.png</PackageIcon>
+      <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageIcon>icon.png</PackageIcon>
     <PackageProjectUrl>https://github.com/SENESO/Zatca.Net</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
     <PackageReadmeFile>README.md</PackageReadmeFile>
