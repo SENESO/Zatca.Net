@@ -50,8 +50,11 @@ namespace Zatca.Crypto
             if (hash.Length != 32)
                 throw new ArgumentException("Hash must be the 32-byte SHA-256 digest.", nameof(hash));
 
-            // .NET returns DER; ZATCA's QR tag 7 carries raw r‖s (64 bytes).
-            return DerToRaw64(_ecdsa.SignHash(hash));
+            // ZATCA's QR tag 7 carries raw r‖s (64 bytes, IEEE P1363).
+            // .NET Core 3.0+ returns that format by default; normalize a DER
+            // sequence just in case (e.g. .NET Framework behavior).
+            var sig = _ecdsa.SignHash(hash);
+            return sig.Length == 64 ? sig : DerToRaw64(sig);
         }
 
         /// <inheritdoc />
@@ -63,7 +66,11 @@ namespace Zatca.Crypto
             if (rawSignature.Length != 64)
                 throw new ArgumentException("Signature must be the raw 64-byte r‖s form.", nameof(rawSignature));
 
-            return _ecdsa.VerifyHash(hash, RawToDer64(rawSignature));
+            // Match SignHash: P1363 by default, DER as fallback.
+            if (_ecdsa.VerifyHash(hash, rawSignature))
+                return true;
+            try { return _ecdsa.VerifyHash(hash, RawToDer64(rawSignature)); }
+            catch (CryptographicException) { return false; }
         }
 
         /// <inheritdoc />
